@@ -3,4 +3,4 @@ My pet_projects
 
 | Projects | README |
 | ------ | ------ |
-| Weather REST API service | [weather/README.md][PlDb] |
+| Weather REST API service | [/weather/README.md][PlDb] |
