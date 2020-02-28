@@ -8,6 +8,7 @@ Technological stack:
   - PostreSQL
   - Liquibase
   - Jackson
+  - Lombok
   - Mashape Unirest
 
 # Description:
