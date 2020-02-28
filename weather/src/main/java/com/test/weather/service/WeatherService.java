@@ -31,7 +31,7 @@ public class WeatherService {
         this.weatherService = weatherService;
     }
 
-    //mainMethods
+    //main method
     public Response getWeather() throws IOException, UnirestException {
         //creating objects for response, restTemplate and objectMapper
         Response responseWeather = new Response();
