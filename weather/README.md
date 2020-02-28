@@ -7,6 +7,7 @@ Technological stack:
   - Maven
   - PostreSQL
   - Liquibase
+  - Lombok
   - Jackson
   - Mashape Unirest
 
