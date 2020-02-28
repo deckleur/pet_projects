@@ -1,0 +1,44 @@
+databaseChangeLog:
+        - changeSet:
+                  id: 13
+                  author: liquibase-docs
+                  changes:
+                          - createTable:
+                                    tableName: weather
+                                    columns:
+                                            - column:
+                                                      name: id
+                                                      type: int
+                                                      autoIncrement: true
+                                                      constraints:
+                                                              primaryKey: true
+                                                              nullable: false
+                                            - column:
+                                                      name: city
+                                                      type: VARCHAR(50)
+                                                      constraints:
+                                                              nullable: false
+                                            - column:
+                                                      name: service
+                                                      type: VARCHAR(50)
+                                                      constraints:
+                                                              nullable: false
+                                            - column:
+                                                      name: temperature
+                                                      type: INT
+                                                      constraints:
+                                                              nullable: false
+                                            - column:
+                                                      name: humidity
+                                                      type: INT
+                                                      constraints:
+                                                              nullable: false
+                                            - column:
+                                                      name: updated
+                                                      type: TIMESTAMP
+                                                      constraints:
+                                                              nullable: false
+                          - addUniqueConstraint:
+                              columnNames: city, service
+                              constraintName: city_service
+                              tableName: weather

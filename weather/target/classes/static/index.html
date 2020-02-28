@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather REST service</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<div id="chart-form">
+    <form action="/weather" method="get" class="weather" onsubmit="this.subm.disabled=true;">
+        <p><b>Выбери город и погодный сервис:</b></p>
+        <input class="city" type="text" name="city" value="" placeholder="Населенный пункт" autocomplete="off" />
+        <input class="time" type="text" name="time" value="" placeholder="Введи минуты (кэш)" autocomplete="off" />
+        <input type="radio" id="contactChoice1"
+               name="weatherService" value="open_weather_map">
+        <label for="contactChoice1">openweathermap</label>
+
+        <input type="radio" id="contactChoice2"
+               name="weatherService" value="yandex_weather" checked>
+        <label for="contactChoice2">weather.yandex</label>
+
+        <input type="radio" id="contactChoice3"
+               name="weatherService" value="world_weather_online">
+        <label for="contactChoice3">worldweatheronline*</label>
+        <blockquote class="text-danger">Only english character service!</blockquote>
+        <p><input class="send btn btn-success" type="submit" value="Узнать погоду!"></p>
+    </form>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/popper.min.js"></script>
+</body>
+</html>
