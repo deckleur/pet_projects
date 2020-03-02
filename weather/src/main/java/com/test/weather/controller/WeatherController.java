@@ -16,8 +16,13 @@ import java.io.IOException;
 @RestController
 @RequestMapping("weather")
 public class WeatherController {
+    private final MainService mainService;
+
     @Autowired
-    private MainService mainService;
+    public WeatherController(MainService mainService) {
+        this.mainService = mainService;
+    }
+    
     @GetMapping
     public Response getWeather(@RequestParam(name = "city") String city, @RequestParam(name="weatherService") String weatherService, @RequestParam(name="time") int time) throws IOException, UnirestException {
         try {
