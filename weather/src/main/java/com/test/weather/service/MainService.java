@@ -14,9 +14,11 @@ import java.util.Date;
 
 @Service
 public class MainService {
+    private final WeatherRepository weatherRepository;
 
-    @Autowired
-    private WeatherRepository weatherRepository;
+    public MainService(WeatherRepository weatherRepository) {
+        this.weatherRepository = weatherRepository;
+    }
 
     public Response getWeather(String city, String weatherService, int time) throws IOException, UnirestException {
         //check if the city and service are in the database
