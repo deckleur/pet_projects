@@ -27,7 +27,7 @@ public class MainService {
 
         //ConvertTimeToLongTime
         long userTime = time * 60 * 1000;
-        boolean isUpdate = new Date().getTime() - Date.from(weatherData.getUpdated().atZone(ZoneId.systemDefault()).toInstant()).getTime()>userTime;
+        long timeNow = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()).getTime();
 
         //creating response object
         Response response = new Response();
@@ -37,10 +37,8 @@ public class MainService {
             response = service.getWeather(city, weatherService);
             weatherData = new Weather(city, weatherService, response.getTemp(), response.getHumidity(), LocalDateTime.now());
             weatherRepository.save(weatherData);
-        }
-        //if the data is in the database and more time has passed, update data from WeatherService
-        else {
-            if (isUpdate) {
+        }else {
+            if (timeNow - Date.from(weatherData.getUpdated().atZone(ZoneId.systemDefault()).toInstant()).getTime()>userTime) {
                 WeatherService service = new WeatherService();
                 response = service.getWeather(city, weatherService);
                 weatherData.setService(weatherService);
