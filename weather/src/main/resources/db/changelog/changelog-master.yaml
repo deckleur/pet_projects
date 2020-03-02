@@ -40,5 +40,5 @@ databaseChangeLog:
                                                               nullable: false
                           - addUniqueConstraint:
                               columnNames: city, service
-                              constraintName: city_service
+                              constraintName: weather_city_service_unique_constraint
                               tableName: weather
