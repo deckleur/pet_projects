@@ -16,6 +16,7 @@ import java.util.Date;
 public class MainService {
     private final WeatherRepository weatherRepository;
 
+    @Autowired
     public MainService(WeatherRepository weatherRepository) {
         this.weatherRepository = weatherRepository;
     }
