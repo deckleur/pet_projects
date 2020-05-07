@@ -1,0 +1,66 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Blieva" id="russpass_role table 2019-07-23">
+        <createTable tableName="russpass_role" remarks="Таблица ролей">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="russpass_role_pk"/>
+            </column>
+            <column name="name" type="VARCHAR(150)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="description" type="VARCHAR(2000)"/>
+            <column name="editable" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parameters" type="TEXT"/>
+        </createTable>
+
+        <sql>
+            INSERT INTO russpass_role (name, description, editable) VALUES
+            ('admin', 'Администратор', false),
+            ('user', 'Пользователь', false),
+            ('editor', 'Контент-редактор', true);
+        </sql>
+
+        <rollback>
+            <dropTable tableName="russpass_role"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Blieva" id="russpass_user role column 2019-07-23">
+        <addColumn tableName="russpass_user">
+            <column name="role_id" type="BIGINT" defaultValueNumeric="2">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="russpass_user"
+                                 constraintName="russpass_user_role_id_fk" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="russpass_role"/>
+
+        <rollback>
+            <dropColumn tableName="russpass_user" columnName="role_id"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Blieva" id="russpass_user blocked column 2019-07-23">
+        <addColumn tableName="russpass_user">
+            <column name="blocked" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="russpass_user" columnName="blocked"/>
+        </rollback>
+    </changeSet>
+     
+</databaseChangeLog>

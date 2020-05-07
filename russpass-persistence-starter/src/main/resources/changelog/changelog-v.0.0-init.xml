@@ -1,0 +1,99 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Blieva" id="russpass_user table 2019-06-14">
+        <createTable tableName="russpass_user" remarks="Таблица пользователей">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="russpass_user_pk"/>
+            </column>
+            <column name="email" type="VARCHAR(150)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="middle_name" type="VARCHAR(255)"/>
+            <column name="image_url" type="VARCHAR(1000)"/>
+            <column name="google_id" type="VARCHAR(255)"/>
+            <column name="facebook_id" type="VARCHAR(255)"/>
+            <column name="email_confirmed" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deleted" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parameters" type="TEXT"/>
+        </createTable>
+
+        <sql>
+            CREATE UNIQUE INDEX russpass_user_email_unique_not_deleted_ix
+            ON russpass_user(email)
+            WHERE deleted IS FALSE
+        </sql>
+
+        <createIndex indexName="russpass_user_ix1" tableName="russpass_user">
+            <column name="email"/>
+        </createIndex>
+
+        <rollback>
+            <dropTable tableName="russpass_user"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Blieva" id="russpass_property table 2019-06-18">
+        <createTable tableName="russpass_property" remarks="Таблица настроек приложения">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="russpass_property_pk"/>
+            </column>
+            <column name="key" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="value" type="VARCHAR(10000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="russpass_property"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Blieva" id="russpass_verification_token table 2019-06-21">
+        <createTable tableName="russpass_verification_token" remarks="Таблица настроек приложения">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="russpass_verification_token_pk"/>
+            </column>
+            <column name="token_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expire" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="russpass_verification_token"
+                                 constraintName="russpass_verification_token_user_id_fk" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="russpass_user"/>
+
+        <rollback>
+            <dropTable tableName="russpass_verification_token"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
