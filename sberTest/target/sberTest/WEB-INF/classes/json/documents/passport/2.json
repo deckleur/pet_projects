@@ -1,0 +1,10 @@
+{
+  "id" : 2,
+  "number" : 5432761230,
+  "firstName" : "Sergey",
+  "middleName" : "Sergeevich",
+  "lastName" : "Morozov",
+  "dateBirth" : "07-04-1994",
+  "cityBirth" : "Kemerovo",
+  "departmentCode" : 837474
+}

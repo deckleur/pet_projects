@@ -1,0 +1,14 @@
+{
+  "id" : 3,
+  "number" : 9463382710,
+  "firstName" : "SERGEY",
+  "middleName" : "DMITRIEVICH",
+  "lastName" : "MARUJENKO",
+  "dateBirth" : "08-08-1972",
+  "cityBirth" : "G. VOLOGDA",
+  "dateIssue" : "01-05-1993",
+  "dateExpiration" : "22-04-2023",
+  "department" : "GIBDD 3401",
+  "registration" : "OMSKAYA OBL",
+  "categories" : "B, B1, M, C, C1, D"
+}

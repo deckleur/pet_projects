@@ -1,0 +1,14 @@
+{
+  "id" : 2,
+  "number" : 2416612133,
+  "firstName" : "ALLA",
+  "middleName" : "ANDREEVNA",
+  "lastName" : "OLEHINA",
+  "dateBirth" : "13-09-2000",
+  "cityBirth" : "G. MOSKVA",
+  "dateIssue" : "31-07-2019",
+  "dateExpiration" : "31-07-2029",
+  "department" : "GIBDD 5401",
+  "registration" : "NOVOSIBIRSKAYA OBL.",
+  "categories" : "A, A1, B, B1, M"
+}

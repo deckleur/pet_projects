@@ -1,0 +1,14 @@
+{
+  "id" : 1,
+  "number" : 8817512133,
+  "firstName" : "OLEG",
+  "middleName" : "VASILIEVICH",
+  "lastName" : "KUCHERYAVIN",
+  "dateBirth" : "20-02-1985",
+  "cityBirth" : "G. SANKT_PETERBURG",
+  "dateIssue" : "21-03-2010",
+  "dateExpiration" : "21-03-2030",
+  "department" : "GIBDD 7401",
+  "registration" : "KRASNODARSKII KR",
+  "categories" : "B, B1, M"
+}
