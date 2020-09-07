@@ -50,9 +50,17 @@ public class DocumentServiceImplTest extends TestCase {
     @Test
     public void getDriverLicenseInfo(){
         DocumentControllerDto documentControllerDto = service.getDocInfo(1L, "driverlicense");
-        assertEquals(
+
+        Long numberResult = documentControllerDto.getNumber();
+        Long numberExpResult = 8817512133l;
+
+        assertEquals("Wrong getting Driver license document (non expected class) in DocumentServiceImp",
                 "DriverLicenseControllerDto",
                 documentControllerDto.getClass().getSimpleName()
         );
+
+        assertEquals("Non expected number of Driver license document in DocumentServiceImp",
+                numberExpResult, numberResult);
+
     }
 }

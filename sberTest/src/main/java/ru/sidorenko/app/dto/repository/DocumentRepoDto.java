@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  *  Common repository dto for all types of documents. Contains the following information:
- *      1. id - the number of the json document in the database
+ *      1. id - the number of the json document in the repository
  *      2. number - unique identifier of the document
  *      3. firstName - first name (ex. Ivan)
  *      4. middleName - middle name (ex. Ivanovich)

@@ -32,7 +32,8 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public DocumentControllerDto getDocInfo(Long id, String type) {
         DocumentType documentType = DocumentType.from(type);
-        DocumentRepoDto documentRepoDto = repository.readDataFromJson(id, documentType.getDirectory(), documentType.getClazz());
+        DocumentRepoDto documentRepoDto = repository.readDataFromJson(
+                id, documentType.getDirectory(), documentType.getClazz());
 
         return DocumentFactory.getDocument(documentType, documentRepoDto);
     }

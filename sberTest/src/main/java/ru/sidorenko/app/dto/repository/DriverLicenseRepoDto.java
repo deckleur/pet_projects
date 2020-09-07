@@ -10,7 +10,7 @@ import java.util.Date;
  *      1. cityBirth - city of birth, a frequent parameter of a document, but not found in every document
  *      2. dateIssue - date of issue of the document, occurs often, but not in all types of documents
  *      3. dateExpiration - date when the document expires
- *      4. department - name of the gibdd department that issued the document
+ *      4. department - name of the GIBDD department that issued the document
  *      5. registration - region of registration of the owner of the document
  *      6. categories - driving categories, from A to Tb
  *

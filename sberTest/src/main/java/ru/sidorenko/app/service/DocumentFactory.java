@@ -25,44 +25,47 @@ public class DocumentFactory {
         DocumentControllerDto documentControllerDto = null;
         switch (type) {
             case PASSPORT:
+                PassportRepoDto passportRepoDto = (PassportRepoDto) documentRepoDto;
                 documentControllerDto = new PassportControllerDto(
-                        documentRepoDto.getId(),
-                        documentRepoDto.getNumber(),
-                        documentRepoDto.getLastName() + " "
-                                + documentRepoDto.getFirstName() + " "
-                                + documentRepoDto.getMiddleName(),
-                        documentRepoDto.getDateBirth(),
-                        ((PassportRepoDto) documentRepoDto).getCityBirth(),
-                        ((PassportRepoDto) documentRepoDto).getDepartmentCode()
+                        passportRepoDto.getId(),
+                        passportRepoDto.getNumber(),
+                        passportRepoDto.getLastName() + " "
+                                + passportRepoDto.getFirstName() + " "
+                                + passportRepoDto.getMiddleName(),
+                        passportRepoDto.getDateBirth(),
+                        passportRepoDto.getCityBirth(),
+                        passportRepoDto.getDepartmentCode()
                 );
                 break;
             case INN:
+                InnRepoDto innRepoDto = (InnRepoDto) documentRepoDto;
                 documentControllerDto = new InnControllerDto(
-                        documentRepoDto.getId(),
-                        documentRepoDto.getNumber(),
-                        documentRepoDto.getLastName() + " "
-                                + documentRepoDto.getFirstName() + " "
-                                + documentRepoDto.getMiddleName(),
-                        documentRepoDto.getDateBirth(),
-                        ((InnRepoDto) documentRepoDto).getCityBirth(),
-                        ((InnRepoDto) documentRepoDto).getDateAssignment(),
-                        ((InnRepoDto) documentRepoDto).getInspectorName()
+                        innRepoDto.getId(),
+                        innRepoDto.getNumber(),
+                        innRepoDto.getLastName() + " "
+                                + innRepoDto.getFirstName() + " "
+                                + innRepoDto.getMiddleName(),
+                        innRepoDto.getDateBirth(),
+                        innRepoDto.getCityBirth(),
+                        innRepoDto.getDateAssignment(),
+                        innRepoDto.getInspectorName()
                 );
                 break;
             case DRIVER_LICENSE:
+                DriverLicenseRepoDto driverLicenseRepoDto = (DriverLicenseRepoDto) documentRepoDto;
                 documentControllerDto = new DriverLicenseControllerDto(
-                        documentRepoDto.getId(),
-                        documentRepoDto.getNumber(),
-                        documentRepoDto.getLastName() + " "
-                                + documentRepoDto.getFirstName() + " "
-                                + documentRepoDto.getMiddleName(),
-                        documentRepoDto.getDateBirth(),
-                        ((DriverLicenseRepoDto) documentRepoDto).getCityBirth(),
-                        ((DriverLicenseRepoDto) documentRepoDto).getDateIssue(),
-                        ((DriverLicenseRepoDto) documentRepoDto).getDateExpiration(),
-                        ((DriverLicenseRepoDto) documentRepoDto).getDepartment(),
-                        ((DriverLicenseRepoDto) documentRepoDto).getRegistration(),
-                        ((DriverLicenseRepoDto) documentRepoDto).getCategories()
+                        driverLicenseRepoDto.getId(),
+                        driverLicenseRepoDto.getNumber(),
+                        driverLicenseRepoDto.getLastName() + " "
+                                + driverLicenseRepoDto.getFirstName() + " "
+                                + driverLicenseRepoDto.getMiddleName(),
+                        driverLicenseRepoDto.getDateBirth(),
+                        driverLicenseRepoDto.getCityBirth(),
+                        driverLicenseRepoDto.getDateIssue(),
+                        driverLicenseRepoDto.getDateExpiration(),
+                        driverLicenseRepoDto.getDepartment(),
+                        driverLicenseRepoDto.getRegistration(),
+                        driverLicenseRepoDto.getCategories()
                 );
                 break;
             default:

@@ -41,7 +41,7 @@ public class DocumentControllerTest extends TestCase {
                 "2. /inn/{id} "+
                 "3. /driverlicense/{id}";
 
-        assertEquals(expResult,result);
+        assertEquals("Wrong default response in DocumentController",expResult,result);
     }
 
     @Test(timeout = 5000)
@@ -51,7 +51,7 @@ public class DocumentControllerTest extends TestCase {
         Long result = documentControllerDto.getId();
         Long expResult = id;
 
-        assertEquals(expResult, result);
+        assertEquals("Wrong getDoc(), non expected ID in DocumentController",expResult, result);
     }
 
     @Test(expected = ResourceNotFoundException.class)
